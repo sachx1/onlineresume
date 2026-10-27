@@ -1,12 +1,7 @@
 import "./style.css";
+import { initRouter } from "./router";
 
-const app = document.querySelector<HTMLDivElement>("#app");
+initRouter();
 
-if (app) {
-  app.innerHTML = `
-    <main>
-      <h1>Online Resume</h1>
-      <p>TypeScript + Vite, deployed with Firebase Hosting.</p>
-    </main>
-  `;
-}
+// Loaded separately so the page content shows before the particle library downloads
+import("./background").then(({ initBackground }) => initBackground());

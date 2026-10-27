@@ -8,8 +8,109 @@ body {
   margin: 0;
 }
 
-main {
+#center {
   max-width: 48rem;
   margin: 0 auto;
   padding: 2rem 1rem;
+}
+
+/* Home page navigation buttons: stacked, each on its own line */
+.home-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.home-buttons button {
+  font: inherit;
+  font-size: 1.1rem;
+  min-width: 14rem;
+  padding: 0.7rem 1.25rem;
+  text-align: left;
+  color: inherit;
+  background: transparent;
+  border: 1px solid color-mix(in srgb, currentColor 30%, transparent);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 150ms ease, background-color 150ms ease, border-color 150ms ease;
+  /* "backwards" holds the hidden start frame during the delay, then hands
+     control back to normal styles so hover transforms still work */
+  animation: swoop-in 700ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+/* Stagger each button so they swoop in one after another */
+.home-buttons button:nth-child(1) { animation-delay: 300ms; }
+.home-buttons button:nth-child(2) { animation-delay: 400ms; }
+.home-buttons button:nth-child(3) { animation-delay: 500ms; }
+.home-buttons button:nth-child(4) { animation-delay: 600ms; }
+.home-buttons button:nth-child(5) { animation-delay: 700ms; }
+
+/* Only on devices with a real pointer, so taps on phones don't leave buttons stuck in hover */
+@media (hover: hover) {
+  .home-buttons button:hover {
+    transform: translateX(6px);
+    background-color: color-mix(in srgb, currentColor 8%, transparent);
+    border-color: color-mix(in srgb, currentColor 60%, transparent);
+  }
+}
+
+.home-buttons button:active {
+  background-color: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.home-buttons button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+@keyframes swoop-in {
+  from {
+    opacity: 0;
+    translate: -4rem 1.5rem;
+    rotate: -4deg;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    rotate: 0deg;
+  }
+}
+
+/* Headings scale smoothly with the screen width, between a phone and desktop size */
+#center h1 {
+  font-size: clamp(1.6rem, 2.5vw + 1rem, 2.5rem);
+  line-height: 1.2;
+}
+
+#center h2 {
+  font-size: clamp(1.1rem, 1.5vw + 0.8rem, 1.5rem);
+  line-height: 1.45;
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  /* Reserve room for the longest typed role so the page doesn't jump as it types */
+  #center h1 {
+    min-height: 2lh;
+  }
+
+  /* Full-width buttons are easier to hit with a thumb */
+  .home-buttons {
+    align-items: stretch;
+  }
+
+  .home-buttons button {
+    min-width: 0;
+    padding: 0.85rem 1.25rem;
+  }
+}
+
+/* Skip the motion for people who have reduced motion turned on */
+@media (prefers-reduced-motion: reduce) {
+  .home-buttons button {
+    animation: none;
+    transition: none;
+  }
 }

@@ -15,5 +15,10 @@
     "firebase-tools": "^15.34.1",
     "typescript": "^7.0.2",
     "vite": "^8.3.5"
+  },
+  "dependencies": {
+    "@tsparticles/engine": "^4.5.0",
+    "@tsparticles/slim": "^4.5.0",
+    "typed.js": "^3.0.0"
   }
 }
