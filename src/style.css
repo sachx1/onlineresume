@@ -14,6 +14,99 @@ body {
   padding: 2rem 1rem;
 }
 
+/* Experience page: a stack of job cards */
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Card for experience: title, then date, then bullet points, then technologies, top to bottom */
+.experience-card {
+  padding: 1.5rem;
+  border: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+  border-radius: 12px;
+  /* Translucent page color with a blur, so the particle background doesn't run through the text */
+  background: color-mix(in srgb, Canvas 80%, transparent);
+  backdrop-filter: blur(6px);
+  /* Same swoop-in as the home page buttons */
+  animation: swoop-in 700ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+/* Stagger the cards so they swoop in one after another, starting once the heading begins typing */
+.experience-card:nth-child(1) { animation-delay: 200ms; }
+.experience-card:nth-child(2) { animation-delay: 350ms; }
+.experience-card:nth-child(3) { animation-delay: 500ms; }
+.experience-card:nth-child(4) { animation-delay: 650ms; }
+.experience-card:nth-child(5) { animation-delay: 800ms; }
+
+.experience-card .job-title {
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.3;
+}
+
+.experience-card .job-company {
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+/* Date, location and employment type, directly under the title */
+.experience-card .job-meta {
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+  opacity: 0.7;
+}
+
+.experience-card .job-description {
+  margin: 0.75rem 0 0;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.experience-card .job-highlights {
+  margin: 1rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.experience-card .job-highlights li + li {
+  margin-top: 0.5rem;
+}
+
+/* Technology pills along the bottom of each card */
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tech-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.85rem;
+  border: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+  border-radius: 999px;
+}
+
+.tech-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Black logos would disappear on the dark background, so flip them to white */
+@media (prefers-color-scheme: dark) {
+  .tech-icon.mono {
+    filter: invert(1);
+  }
+}
+
 /* Home page navigation buttons: stacked, each on its own line */
 .home-buttons {
   display: flex;
@@ -23,10 +116,11 @@ body {
   margin-top: 2rem;
 }
 
-.home-buttons button {
+/* Shared button look: the home page buttons, plus any button with class="nav-button" */
+.home-buttons button,
+.nav-button {
   font: inherit;
   font-size: 1.1rem;
-  min-width: 14rem;
   padding: 0.7rem 1.25rem;
   text-align: left;
   color: inherit;
@@ -35,6 +129,11 @@ body {
   border-radius: 10px;
   cursor: pointer;
   transition: transform 150ms ease, background-color 150ms ease, border-color 150ms ease;
+}
+
+/* Home page only: equal widths and the swoop-in animation */
+.home-buttons button {
+  min-width: 14rem;
   /* "backwards" holds the hidden start frame during the delay, then hands
      control back to normal styles so hover transforms still work */
   animation: swoop-in 700ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
@@ -49,20 +148,49 @@ body {
 
 /* Only on devices with a real pointer, so taps on phones don't leave buttons stuck in hover */
 @media (hover: hover) {
-  .home-buttons button:hover {
+  .home-buttons button:hover,
+  .nav-button:hover {
     transform: translateX(6px);
     background-color: color-mix(in srgb, currentColor 8%, transparent);
     border-color: color-mix(in srgb, currentColor 60%, transparent);
   }
 }
 
-.home-buttons button:active {
+.home-buttons button:active,
+.nav-button:active {
   background-color: color-mix(in srgb, currentColor 12%, transparent);
 }
 
-.home-buttons button:focus-visible {
+.home-buttons button:focus-visible,
+.nav-button:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 3px;
+}
+
+/* Optional arrow inside a button, e.g. <span class="arrow">←</span>Home */
+.nav-button .arrow {
+  display: inline-block;
+  margin-right: 0.5rem;
+  transition: transform 150ms ease;
+}
+
+/* Nudge the arrow in the direction it points */
+@media (hover: hover) {
+  .nav-button:hover .arrow {
+    transform: translateX(-4px);
+  }
+}
+
+/* A row with a button beside the page heading, e.g. [Home] Experience */
+.page-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem 1.25rem;
+}
+
+.page-header h1 {
+  margin: 0;
 }
 
 @keyframes swoop-in {
@@ -96,6 +224,15 @@ body {
     min-height: 2lh;
   }
 
+  /* Single-line page titles don't need that reserved space */
+  #center .page-header h1 {
+    min-height: 0;
+  }
+
+  .experience-card {
+    padding: 1.1rem;
+  }
+
   /* Full-width buttons are easier to hit with a thumb */
   .home-buttons {
     align-items: stretch;
@@ -112,5 +249,9 @@ body {
   .home-buttons button {
     animation: none;
     transition: none;
+  }
+
+  .experience-card {
+    animation: none;
   }
 }

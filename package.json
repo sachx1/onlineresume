@@ -12,6 +12,7 @@
     "deploy": "npm run build && firebase deploy --only hosting"
   },
   "devDependencies": {
+    "devicon": "^2.18.0",
     "firebase-tools": "^15.34.1",
     "typescript": "^7.0.2",
     "vite": "^8.3.5"
