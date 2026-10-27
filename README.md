@@ -1,5 +1,7 @@
 # Online Resume
 
+[![Deploy to Firebase Hosting](https://github.com/sachx1/onlineresume/actions/workflows/firebase-hosting-merge.yml/badge.svg)](https://github.com/sachx1/onlineresume/actions/workflows/firebase-hosting-merge.yml)
+
 Sachin Khargie's online portfolio: a single-page app that shows my experience, projects, NeetCode progress, and a bit about me in more detail than a standard resume.
 
 **Live site:** https://onlineresume-e0975.web.app
@@ -12,6 +14,7 @@ Sachin Khargie's online portfolio: a single-page app that shows my experience, p
 - **Live particle background.** A drifting network of dots and links sits behind every page and connects to the mouse pointer.
 - **Mobile friendly.** Headings scale with the screen, buttons go full width on phones, and hover effects only apply to devices with a mouse.
 - **Accessible motion.** Visitors who have "reduce motion" turned on get a still background and no button animation.
+- **Automatic deployment.** GitHub Actions builds and deploys the site on every push to `main`, and gives each pull request its own preview URL.
 
 ## Tech stack
 
@@ -22,6 +25,7 @@ Sachin Khargie's online portfolio: a single-page app that shows my experience, p
 | [Typed.js](https://github.com/mattboldt/typed.js) | 3.0 | Typing animation on the home page |
 | [tsParticles](https://particles.js.org/) (`@tsparticles/engine`, `@tsparticles/slim`) | 4.5 | Particle network background |
 | [Firebase Hosting](https://firebase.google.com/docs/hosting) (`firebase-tools`) | 15.34 | Hosting and deployment |
+| [GitHub Actions](https://docs.github.com/actions) (`action-hosting-deploy`) | v0 | Continuous deployment to Firebase |
 
 The router, page rendering, and all styling are written by hand, with no UI framework or CSS library.
 
@@ -70,6 +74,9 @@ src/
     contact.ts
 firebase.json         Hosting config: serves dist/ and sends every URL to index.html
 .firebaserc           Firebase project ID
+.github/workflows/
+  firebase-hosting-merge.yml          Deploys to the live site on every push to main
+  firebase-hosting-pull-request.yml   Deploys each pull request to a preview URL
 ```
 
 ### How pages work
@@ -86,7 +93,20 @@ To add a page:
 
 The site is hosted on Firebase Hosting under the project `onlineresume-e0975`.
 
-Deploy with the Firebase CLI installed in this project, via `npx`:
+### Automatic (GitHub Actions)
+
+Deployment runs through GitHub Actions, so pushing to GitHub is all it takes:
+
+- **Push to `main`:** builds the site and deploys it to the live URL.
+- **Open a pull request:** builds the site and deploys it to a temporary preview URL, which the workflow posts as a comment on the PR. Pull requests from forks are skipped.
+
+Both workflows install Node 22, run `npm ci && npm run build`, then deploy with Firebase's [`action-hosting-deploy`](https://github.com/FirebaseExtended/action-hosting-deploy). If the type check or build fails, nothing is deployed. You can follow each run in the repo's **Actions** tab.
+
+The workflows authenticate with a Google Cloud service account, whose key is stored as the encrypted repository secret `FIREBASE_SERVICE_ACCOUNT_ONLINERESUME_E0975`. The workflows and secret were set up with `npx firebase init hosting:github`.
+
+### Manual
+
+To deploy from your own machine instead, use the Firebase CLI installed in this project, via `npx`:
 
 ```bash
 npx firebase login
