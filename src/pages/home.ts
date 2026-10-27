@@ -1,8 +1,10 @@
 import Typed from "typed.js";
 import { navigate } from "../router";
 
+// Checks to see if there is a word, if no then leave undefined
 let typed: Typed | undefined;
 
+// Function which creates the home page
 export function Home (container: HTMLElement) {
     container.innerHTML = `
     <div>
@@ -19,7 +21,9 @@ export function Home (container: HTMLElement) {
         <button type="button" id="contact-mode">Contact</button>
     </div>`
 
+    // Check to see if typed needs to destroy and reload
     typed?.destroy();
+    // New typed object, creates the speed, loop boolean and list of words to cycle through
     typed = new Typed("#role", {
         strings: ["Platform Engineer.", "Full Stack Engineer.", "problem solver."],
         typeSpeed: 60,
@@ -27,6 +31,7 @@ export function Home (container: HTMLElement) {
         loop: true,
       });
 
+      // HTML Button Elements hooked up to event listener to give the buttons functionality, so they can switch to a diff page
       container.querySelector<HTMLButtonElement>('#experience-mode')!.addEventListener('click', () => {
         navigate('/experience')
       })
