@@ -48,5 +48,5 @@ export function Experience (container: HTMLElement) {
     // HTML Button Elements hooked up to event listener to go back to the home page
     container.querySelector<HTMLButtonElement>('#home-mode')!.addEventListener('click', () => {
         navigate('/')
-      })
+    })
 }
