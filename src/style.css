@@ -74,6 +74,150 @@ body {
   margin-top: 0.5rem;
 }
 
+/* About page: the intro sits outside a card, in slightly larger text */
+.about-intro {
+  margin-top: 1.5rem;
+  font-size: clamp(1.05rem, 0.5vw + 0.95rem, 1.2rem);
+  line-height: 1.7;
+}
+
+.about-intro p {
+  margin: 0;
+}
+
+/* Regular reading text inside a card (job-description is italic, which is tiring for long paragraphs) */
+.about-text {
+  margin: 0.75rem 0 0;
+  line-height: 1.65;
+}
+
+/* Skills card: one small heading and a row of pills per category */
+.skill-group h3 {
+  margin: 1.1rem 0 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.7;
+}
+
+.skill-group .tech-list {
+  margin-top: 0.5rem;
+}
+
+/* Two cards side by side when there's room for both (at least 16rem each), stacked otherwise */
+.card-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.5rem;
+}
+
+/* Cards inside a row are numbered from 1 again, so continue the swoop-in stagger from the cards above */
+.card-row .experience-card:nth-child(1) { animation-delay: 650ms; }
+.card-row .experience-card:nth-child(2) { animation-delay: 800ms; }
+
+/* "Want to chat?" line with a button to the Contact page */
+.about-cta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.about-cta p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* Contact page: one row per way to reach me */
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* The link fills the row; extra buttons (like Copy) sit beside it, or wrap below on narrow phones */
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.contact-link {
+  flex: 1 1 15rem;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.85rem 1rem;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+  border-radius: 12px;
+  transition: transform 150ms ease, background-color 150ms ease, border-color 150ms ease;
+}
+
+@media (hover: hover) {
+  .contact-link:hover {
+    transform: translateY(-2px);
+    background-color: color-mix(in srgb, currentColor 8%, transparent);
+    border-color: color-mix(in srgb, currentColor 60%, transparent);
+  }
+}
+
+.contact-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.contact-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+/* Black icons (mail, GitHub) flip to white on the dark background */
+@media (prefers-color-scheme: dark) {
+  .contact-icon.mono {
+    filter: invert(1);
+  }
+}
+
+.contact-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.contact-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.7;
+}
+
+/* Long addresses wrap instead of pushing the page sideways */
+.contact-value {
+  font-size: 1.05rem;
+  overflow-wrap: anywhere;
+}
+
+.contact-arrow {
+  margin-left: auto;
+  opacity: 0.6;
+}
+
+/* .link-button on a <button> instead of a link: drop the browser's default button look */
+button.link-button {
+  font-family: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+
 /* Projects: row of link buttons under the project title */
 .project-links {
   display: flex;
@@ -213,10 +357,20 @@ body {
   transition: transform 150ms ease;
 }
 
+/* A forward arrow goes after the text instead, e.g. Get in touch<span class="arrow forward">→</span> */
+.nav-button .arrow.forward {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+
 /* Nudge the arrow in the direction it points */
 @media (hover: hover) {
   .nav-button:hover .arrow {
     transform: translateX(-4px);
+  }
+
+  .nav-button:hover .arrow.forward {
+    transform: translateX(4px);
   }
 }
 

@@ -1,19 +1,10 @@
 import Typed from "typed.js";
 import { navigate } from "../router";
 import { webProjects } from "../data/projects";
-import { techIcons } from "../data/techIcons";
+import { techChip } from "../techChip";
 import githubIcon from "devicon/icons/github/github-original.svg";
 
 let proj: Typed | undefined;
-
-// One technology as a pill: its icon (when there is one) followed by its name
-function techChip(name: string): string {
-    const icon = techIcons[name];
-    const img = icon
-        ? `<img class="tech-icon${icon.mono ? " mono" : ""}" src="${icon.src}" alt="" width="18" height="18">`
-        : "";
-    return `<li class="tech-chip">${img}${name}</li>`;
-}
 
 export function Projects (container: HTMLElement) {
     container.innerHTML = `

@@ -15,10 +15,17 @@ import firebase from "devicon/icons/firebase/firebase-original.svg";
 import aws from "devicon/icons/amazonwebservices/amazonwebservices-plain.svg";
 import typescript from "devicon/icons/typescript/typescript-original.svg";
 import vite from "devicon/icons/vitejs/vitejs-original.svg";
+import react from "devicon/icons/react/react-original.svg";
+import express from "devicon/icons/express/express-original.svg";
+import azure from "devicon/icons/azure/azure-original.svg";
+import git from "devicon/icons/git/git-original.svg";
+import jupyter from "devicon/icons/jupyter/jupyter-original.svg";
+import claude from "devicon/icons/claude/claude-original.svg";
 import googleMaps from "../assets/icons/googlemaps.svg";
 // Generic icons for technologies without a logo of their own
 import database from "../assets/icons/database.svg";
 import pipeline from "../assets/icons/pipeline.svg";
+import api from "../assets/icons/api.svg";
 
 export interface TechIcon {
   src: string;
@@ -48,4 +55,14 @@ export const techIcons: Record<string, TechIcon> = {
   "Google Firebase": { src: firebase },
   "AWS S3": { src: aws },
   "CI/CD": { src: pipeline, mono: true },
+  // Skills list
+  "React": { src: react },
+  "Vanilla JS and DOM APIs": { src: javascript },
+  "Express": { src: express, mono: true },
+  "REST APIs": { src: api, mono: true },
+  "Azure": { src: azure },
+  "Python notebooks": { src: jupyter },
+  "Git": { src: git },
+  "Claude Code": { src: claude },
+  "Cowork": { src: claude },
 };
