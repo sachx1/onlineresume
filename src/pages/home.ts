@@ -12,7 +12,6 @@ export function Home (container: HTMLElement) {
         <h1>Hi, I'm Sachin. I'm a <span id="role"></span></h1>
         <!-- One-line summary, so a recruiter skimming the first screen gets the key facts -->
         <p class="home-summary">Backend developer and data engineer with 3+ years building Node.js services and data pipelines, plus the JavaScript front ends that use them. Currently a Backend Developer at Toromont Cat in the Greater Toronto Area.</p>
-        <h2>Welcome to my Online Portfolio. This was made to display my work, projects, and a bit about me in more detail than a standard resume could provide.</h2>
         <!-- Hidden until the PDF exists (see resumePdf.ts) -->
         <div class="project-links" data-resume hidden>
             <a class="link-button" href="${RESUME_PDF}" download>Download resume (PDF) <span aria-hidden="true">↓</span></a>
