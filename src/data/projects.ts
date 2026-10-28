@@ -18,10 +18,10 @@ export const webProjects: webProjects[] = [
         image: "/images/projects/ttc-roulette.jpg",
         imageAlt: "TTC Roulette showing Islington station with nearby restaurant cards and their ratings",
         highlights: [
-            "Used TypeScript and Vite to create an app that randomly selects TTC Stations and what Restaurants, Cafes and Parks are around them",
-            "Fetches nearby places from the Google Places API using each station's coordinates",
-            "Hosting the webapp on Google Firebase",
-            "Had Claude Code help create the JSON data for the TTC Stations"
+            "Built a framework-free single-page app in TypeScript and Vite, with a hand-written History API router for Roulette and Search modes",
+            "Pulls nearby restaurants, cafés and parks from the Google Places API using each station’s coordinates, caching results per station so switching categories doesn’t trigger another API call",
+            "Generated the station dataset (names, coordinates, line colours) with Claude Code, then checked it against TTC’s published station data",
+            "Restricted the client-side Places API key by referrer and API, since Vite bundles it into the browser code"
         ],
         technologies: ["TypeScript", "Vite", "Google Places API", "Google Firebase"]
     },
