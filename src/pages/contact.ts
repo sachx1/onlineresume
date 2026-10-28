@@ -22,7 +22,7 @@ export function Contact (container: HTMLElement) {
     </div>
 
     <section class="about-intro">
-        <p>I'm open to new full-stack and backend developer roles. Whether you're hiring, want to collaborate on something,
+        <p>I'm open to new backend, data engineering, and full-stack developer roles. Whether you're hiring, want to collaborate on something,
         or just want to talk shop, I'd love to hear from you. Email is the best way to reach me.</p>
     </section>
 

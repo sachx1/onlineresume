@@ -11,7 +11,7 @@ export function Home (container: HTMLElement) {
     <div>
         <h1>Hi, I'm Sachin. I'm a <span id="role"></span></h1>
         <!-- One-line summary, so a recruiter skimming the first screen gets the key facts -->
-        <p class="home-summary">Full-stack developer with 3+ years building Node.js services, JavaScript front ends, and data pipelines. Currently a Backend Developer at Toromont Cat in the Greater Toronto Area.</p>
+        <p class="home-summary">Backend developer and data engineer with 3+ years building Node.js services and data pipelines, plus the JavaScript front ends that use them. Currently a Backend Developer at Toromont Cat in the Greater Toronto Area.</p>
         <h2>Welcome to my Online Portfolio. This was made to display my work, projects, and a bit about me in more detail than a standard resume could provide.</h2>
         <!-- Hidden until the PDF exists (see resumePdf.ts) -->
         <div class="project-links" data-resume hidden>
@@ -33,7 +33,7 @@ export function Home (container: HTMLElement) {
     typed?.destroy();
     // New typed object, creates the speed, loop boolean and list of words to cycle through
     typed = new Typed("#role", {
-        strings: ["Platform Engineer.", "Full Stack Engineer.", "problem solver."],
+        strings: ["Backend Developer.", "Data Engineer."],
         typeSpeed: 60,
         backSpeed: 30,
         loop: true,

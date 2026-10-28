@@ -13,7 +13,7 @@ interface Route {
 
 // Dictionary object that maps the key (path) to the value (page and its title)
 const routes: Record<string, Route> = {
-    '/': { render: Home, title: "Sachin Khargie · Full Stack Developer" },
+    '/': { render: Home, title: "Sachin Khargie · Backend Developer & Data Engineer" },
     '/experience': { render: Experience, title: "Experience · Sachin Khargie" },
     '/projects': { render: Projects, title: "Projects · Sachin Khargie" },
     '/neetcode': { render: Neetcode, title: "NeetCode · Sachin Khargie" },
