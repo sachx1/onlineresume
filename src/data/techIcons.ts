@@ -21,6 +21,7 @@ import azure from "devicon/icons/azure/azure-original.svg";
 import git from "devicon/icons/git/git-original.svg";
 import jupyter from "devicon/icons/jupyter/jupyter-original.svg";
 import claude from "devicon/icons/claude/claude-original.svg";
+import githubActions from "devicon/icons/githubactions/githubactions-original.svg";
 import googleMaps from "../assets/icons/googlemaps.svg";
 // Generic icons for technologies without a logo of their own
 import database from "../assets/icons/database.svg";
@@ -47,7 +48,8 @@ export const techIcons: Record<string, TechIcon> = {
   "Vite": { src: vite },
   "HTML/CSS": { src: html5 },
   "Google Maps JavaScript API": { src: googleMaps },
-  "Google Maps API": { src: googleMaps },
+  "Google Places API": { src: googleMaps },
+  "GitHub Actions": { src: githubActions },
   "JSON": { src: json, mono: true },
   "Flask": { src: flask, mono: true },
   "Three.js": { src: threejs, mono: true },

@@ -27,27 +27,18 @@ export function About (container: HTMLElement) {
     <div class="experience-list">
         <article class="experience-card">
             <h2 class="job-title">How I got here</h2>
-            <p class="about-text">My journey was a long one. As mentioned above, I started in the year of 2013 in Grade 10. From there, I learned the basics of Java, such as Object Oriented Programming,
-            Loops, Arrays, JDK, JRE and JVM. I created my first hello world program with Java. From there, we built a lot of applications that displayed in the console. Nothing with a UI
-            as of yet. In Grade 11, we started to dabble with GUIs in Java. I remember creating a soccer database with the current players from Europe's top 5 leagues. This was especially hard
-            at the time, since I had no idea about APIs. Which in retrospect would have saved me a ton of time, rather than inputting each player one by one. Grade 12 was when we moved onto Python.
-            We learned the basics, and had to develop many different projects. Some using Raspberry Pis. The final project was building a game in Python. By this time, I was heavily into gaming.
-            While I loved Computer Science, I felt that gaming would help me achieve my goal. I would've loved to make a game that was used worldwide, and one which would create countless memories
-            for people my age and above.</p>
-            <p class="about-text">I ended up going to York University for their Digital Media program. This was a program that combined York's Computer Science program and their Arts program to teach students the skills required
-            to build Video Games. Many courses overlapped with York's Computer Science program, such as Discrete Math, Data Structures and Algorithms, Introduction to Object Oriented Programming etc. We also took
-            courses that taught us how to 3D Model and Animate, and how to build games using Unity and Unreal Engine. For my capstone project, my friends and I created a VR escape room. This project combined all of the skills
-            learned over my 5 years of being at York. I used the techniques learned in my various courses, to bring this idea to life.</p>
-            <p class="about-text">While I was at York University, I ended up getting a part time job at Toronto General Hospital. This helped me a lot, not only with my knowledge of development, but also gave
-            me the confidence to tackle hard projects on my own, whether it's a personal project or at School. I got this job in 2019 and kept it until April 2020, at the start of the pandemic. It was a sad end, since
-            I loved working with the Anesthesia team, however, we lost our funding to help combat Covid-19. During this time, I just focused on finishing my degree and building small projects on the side to keep my brain working
-            in lockdown. In April of 2021, I graduated from the program with honours. I felt so relieved and happy that after a long journey, I finally got the degree.</p>
-            <p class="about-text">After graduating and celebrating, I started to apply to jobs. While my experience at Toronto General certainly helped, the market was hyper competitive, which made me have to rethink my entire
-            resume and way of applying. In Spring of 2022, I finally got a job at a start up. The company was Chelsea Avondale. I was excited to start working with them, as it was my first full time gig as a developer. However, I quickly found
-            that start up culture was definitely not for me at that point in my career. So after sticking it out for as long as I could, I ended up leaving and had to look for a job for the next few months. Luckily I had a lot of savings
-            to get me by until February of 2023, when I got the job at Toromont Caterpillar and from then on, have been working at Toromont. Working here gave me the time and space to learn, work on my craft, and build something meaningful.</p>
-            <p class="about-text">During my time here at Toromont Caterpillar, I built a Twilio Notification System, which sends over 10k SMS and Email Notifications to Customers which use equipment and machines from Toromont. I also helped
-            migrate our on prem data to Microsoft Fabric. Within Fabric, I also helped build pipelines, created stored procedures and automate certain functions with Python Notebooks.</p>
+            <p class="about-text">It started in Grade 10, back in 2013, with Java: object-oriented programming, loops, arrays, and my very first hello world.
+            In Grade 11 we moved on to GUIs, and I built a soccer database of the players in Europe's top 5 leagues. I had no idea APIs existed, so I entered every
+            player one by one. Grade 12 brought Python, Raspberry Pis, and a final project building a game. By then I was heavily into gaming, and I wanted to make a
+            game that would create countless memories for people around the world.</p>
+            <p class="about-text">That led me to York University's Digital Media program, which combined Computer Science courses like Data Structures and Algorithms
+            and Discrete Math with 3D modelling, animation, and game development in Unity and Unreal Engine. For our capstone, my friends and I built a VR escape room.
+            In 2019, while still at York, I joined Toronto General Hospital part-time in the Department of Anesthesia, building 3D heart viewers for medical students
+            with feedback from the hospital's cardiac team. It gave me the confidence to tackle hard projects on my own. I stayed until April 2022, graduating from
+            York with honours along the way in 2021.</p>
+            <p class="about-text">Breaking into the industry wasn't easy. The market was hyper competitive, and I had to rethink my resume and how I applied. In spring
+            2022 I landed my first full-time developer role at Chelsea Avondale, a startup, and learned that startup culture wasn't the right fit for me at that point in
+            my career. In February 2023 I joined Toromont Cat, where I've had the time and space to grow my craft and build systems the business relies on every day.</p>
         </article>
 
         <!-- Draft: edit to match what you're actually focused on -->

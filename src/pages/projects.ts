@@ -15,6 +15,11 @@ export function Projects (container: HTMLElement) {
         <div class="experience-list">
         ${webProjects.map(project =>
             `<article class="experience-card">
+                <!-- Screenshot links to the live site too; hidden from keyboard and screen readers since "Live site" below does the same -->
+                ${project.image ? `
+                <a class="project-image" href="${project.link}" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+                    <img src="${project.image}" alt="${project.imageAlt ?? ""}" width="800" height="450" loading="lazy">
+                </a>` : ""}
                 <h2 class="job-title">${project.assignment}</h2>
                 <!-- Links open in a new tab; rel="noopener noreferrer" stops the new page from controlling this one -->
                 <div class="project-links">

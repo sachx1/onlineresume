@@ -1,6 +1,7 @@
 import Typed from "typed.js";
 import { navigate } from "../router";
 import { profile } from "../data/resume";
+import { RESUME_PDF, revealResumeLinks } from "../resumePdf";
 import mailIcon from "../assets/icons/mail.svg";
 import linkedinIcon from "devicon/icons/linkedin/linkedin-original.svg";
 import githubIcon from "devicon/icons/github/github-original.svg";
@@ -61,10 +62,22 @@ export function Contact (container: HTMLElement) {
                         <span class="contact-arrow" aria-hidden="true">↗</span>
                     </a>
                 </li>
+                <!-- Hidden until the PDF exists (see resumePdf.ts) -->
+                <li class="contact-row" data-resume hidden>
+                    <a class="contact-link" href="${RESUME_PDF}" download>
+                        <span class="contact-icon contact-glyph" aria-hidden="true">↓</span>
+                        <span class="contact-text">
+                            <span class="contact-label">Resume</span>
+                            <span class="contact-value">Download PDF</span>
+                        </span>
+                    </a>
+                </li>
             </ul>
         </article>
     </div>
     `
+
+    revealResumeLinks(container);
 
     contact?.destroy();
     contact = new Typed("#contact", {

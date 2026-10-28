@@ -110,7 +110,7 @@ export const experience: Job[] = [
     start: "May 2019",
     end: "Apr 2022",
     employment: "Part-time",
-    description: "Interactive 3D visualization tools for congenital cardiac anatomy",
+    description: "Interactive 3D visualization tools for congenital cardiac anatomy, built in the Department of Anesthesia",
     highlights: [
       "Sole developer of browser-based 3D viewers built with Three.js and ES6 JavaScript, rendering ~10 models of hearts that had undergone congenital heart surgery, used by medical students to study corrected anatomy",
       "Added per-chamber color coding and toggleable visibility with orbit and zoom controls, letting students hide outer chambers and examine internal structures at any angle",

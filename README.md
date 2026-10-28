@@ -2,7 +2,7 @@
 
 [![Deploy to Firebase Hosting](https://github.com/sachx1/onlineresume/actions/workflows/firebase-hosting-merge.yml/badge.svg)](https://github.com/sachx1/onlineresume/actions/workflows/firebase-hosting-merge.yml)
 
-Sachin Khargie's online portfolio: a single-page app that shows my experience, projects, NeetCode progress, and a bit about me in more detail than a standard resume.
+Sachin Khargie's online portfolio: a single-page app that shows my experience, projects, and a bit about me in more detail than a standard resume.
 
 **Live site:** https://onlineresume-e0975.web.app
 
@@ -26,6 +26,8 @@ Sachin Khargie's online portfolio: a single-page app that shows my experience, p
 | [tsParticles](https://particles.js.org/) (`@tsparticles/engine`, `@tsparticles/slim`) | 4.5 | Particle network background |
 | [Firebase Hosting](https://firebase.google.com/docs/hosting) (`firebase-tools`) | 15.34 | Hosting and deployment |
 | [GitHub Actions](https://docs.github.com/actions) (`action-hosting-deploy`) | v0 | Continuous deployment to Firebase |
+| [Devicon](https://devicon.dev/) | 2.18 | Technology logos on the tech pills |
+| [Simple Icons](https://simpleicons.org/) | | Google Maps logo (copied into `src/assets/icons`) |
 
 The router, page rendering, and all styling are written by hand, with no UI framework or CSS library.
 
@@ -62,16 +64,26 @@ npm run dev
 index.html            Page shell: the #background canvas container and the #center content area
 src/
   main.ts             Entry point: starts the router, then loads the particle background
-  router.ts           Maps URL paths to page functions and handles navigation
+  router.ts           Maps URL paths to page functions and tab titles, and handles navigation
   background.ts       tsParticles settings for the particle network
-  style.css           Global styles, home page buttons, animations, and mobile layout
+  techChip.ts         Builds a technology pill (icon + name), shared by every page
+  resumePdf.ts        Shows the resume download links once the PDF exists in public/
+  style.css           Global styles, cards, buttons, animations, and mobile layout
+  data/
+    resume.ts         Profile, skills, jobs, and education
+    projects.ts       Project cards
+    techIcons.ts      Maps each technology name to its logo
+  assets/icons/       Generic and extra icons not in Devicon
   pages/
-    home.ts           Typing headline and navigation buttons
-    experience.ts
-    projects.ts
-    neetcode.ts
-    aboutme.ts
-    contact.ts
+    home.ts           Typing headline, summary, and navigation buttons
+    experience.ts     Job cards from data/resume.ts
+    projects.ts       Project cards with screenshots and links
+    neetcode.ts       In progress (route works, no home button yet)
+    aboutme.ts        Story, skills, education, and interests
+    contact.ts        Email, LinkedIn, GitHub, and resume download
+public/
+  og-image.jpg        Image shown in link previews
+  images/projects/    Project screenshots
 firebase.json         Hosting config: serves dist/ and sends every URL to index.html
 .firebaserc           Firebase project ID
 .github/workflows/
@@ -86,7 +98,7 @@ Each page is a function that receives the `#center` element and renders into it.
 To add a page:
 
 1. Create `src/pages/<name>.ts` exporting a function like `export function Name(container: HTMLElement) { ... }`.
-2. Import it in `src/router.ts` and add it to `routes`, for example `'/name': Name`.
+2. Import it in `src/router.ts` and add it to `routes`, for example `'/name': { render: Name, title: "Name · Sachin Khargie" }`.
 3. Add a button or link that calls `navigate('/name')`.
 
 ## Deployment

@@ -8,6 +8,19 @@ body {
   margin: 0;
 }
 
+/* Keep the hidden attribute working even on elements whose class sets a display value */
+[hidden] {
+  display: none !important;
+}
+
+/* Home page: one-line summary under the typing headline */
+.home-summary {
+  margin: 1rem 0 0;
+  font-size: clamp(1.05rem, 0.6vw + 0.95rem, 1.25rem);
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
 #center {
   max-width: 48rem;
   margin: 0 auto;
@@ -180,6 +193,14 @@ body {
   flex-shrink: 0;
 }
 
+/* A text character used as an icon, e.g. the ↓ on the resume row */
+.contact-glyph {
+  display: grid;
+  place-items: center;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
 /* Black icons (mail, GitHub) flip to white on the dark background */
 @media (prefers-color-scheme: dark) {
   .contact-icon.mono {
@@ -216,6 +237,28 @@ button.link-button {
   font-family: inherit;
   background: transparent;
   cursor: pointer;
+}
+
+/* Projects: screenshot across the top of the card */
+.project-image {
+  display: block;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+  border-radius: 8px;
+}
+
+.project-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 300ms ease;
+}
+
+@media (hover: hover) {
+  .project-image:hover img {
+    transform: scale(1.03);
+  }
 }
 
 /* Projects: row of link buttons under the project title */
