@@ -37,8 +37,7 @@ export function About (container: HTMLElement) {
             with feedback from the hospital's cardiac team. It gave me the confidence to tackle hard projects on my own. I stayed until April 2022, graduating from
             York with honours along the way in 2021.</p>
             <p class="about-text">Breaking into the industry wasn't easy. The market was hyper competitive, and I had to rethink my resume and how I applied. In spring
-            2022 I landed my first full-time developer role at Chelsea Avondale, a startup, and learned that startup culture wasn't the right fit for me at that point in
-            my career. In February 2023 I joined Toromont Cat, where I've had the time and space to grow my craft and build systems the business relies on every day.</p>
+            2022 I landed my first full-time developer role at Chelsea Avondale, a startup. Learned a lot in the short time that I worked there. In February 2023 I joined Toromont Cat, where I've had the time and space to grow my craft and build systems the business relies on every day.</p>
         </article>
 
         <!-- Draft: edit to match what you're actually focused on -->
